@@ -38,6 +38,7 @@ do formulário e zerar a barra de progresso novamente.
 */
 
 const App = () => {
+  
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -45,14 +46,45 @@ const App = () => {
     genre: '',
 
   })
-
-
+ 
 
   const handleChange = (event) => {
 
-    setData({...data,[event.target.name]: event.target.value})
+    const {name, value} = event.target
+    setData({...data,[name]: value})
 
   }
+
+
+  const progressBar = () => {
+    
+    let progress = 0;
+    let totalFields = Object.keys(data).length;
+    let percentField = 100 / totalFields;
+
+    Object.keys(data).forEach((field) => {
+
+
+      if(field === 'name'){
+        if(data[field].split(' ').length >= 2) {
+          progress += percentField;
+        }else{
+          progress += 0;
+        }
+      } else if(field === 'email'){
+        if(data[field].match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+          progress += percentField;
+        }else{
+          progress += 0;
+        }
+      } else if(data[field] !== '') 
+      progress += percentField;
+
+    })
+    
+    return progress;
+
+      }
 
 
   return (
@@ -61,6 +93,9 @@ const App = () => {
 
       <main>
         {/* crie a barra de progresso aqui */}
+        <div className='bar-container'>
+          <div className='bar' style={{width:`${progressBar()}%`}}></div>
+        </div>
         <div className='form-group'>
           <label htmlFor=''>Nome Completo</label>
           <input name='name' value={data.name} onChange={handleChange}/>
