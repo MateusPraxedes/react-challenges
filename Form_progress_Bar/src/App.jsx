@@ -1,3 +1,5 @@
+import	React, { useState } from 'react';
+
 /*
 * CHALLENGE progresso do formulário
 
@@ -35,7 +37,24 @@ Ao enviar, deve-se apresentar um alert javascript com sucesso, limpar todos os c
 do formulário e zerar a barra de progresso novamente.
 */
 
-function App() {
+const App = () => {
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    maritalStatus: '',
+    genre: '',
+
+  })
+
+
+
+  const handleChange = (event) => {
+
+    setData({...data,[event.target.name]: event.target.value})
+
+  }
+
+
   return (
     <div className='App'>
       <h1>Barra de Progresso Form - React </h1>
@@ -44,15 +63,15 @@ function App() {
         {/* crie a barra de progresso aqui */}
         <div className='form-group'>
           <label htmlFor=''>Nome Completo</label>
-          <input />
+          <input name='name' value={data.name} onChange={handleChange}/>
         </div>
         <div className='form-group'>
-          <label htmlFor=''>E-mail</label>
-          <input />
+          <label htmlFor=''>Email</label>
+          <input name='email' value={data.email} onChange={handleChange} />
         </div>
         <div className='form-group'>
           <label htmlFor=''>Estado Civil</label>
-          <select>
+          <select value={data.maritalStatus} name='maritalStatus'  onChange={handleChange}>
             <option value=''>- selecione...</option>
             <option value='solteiro'>Solteiro</option>
             <option value='casado'>Casado</option>
@@ -63,10 +82,10 @@ function App() {
           <label htmlFor=''>Gênero</label>
           <div className='radios-container'>
             <span>
-              <input type='radio' /> Masculino
+              <input name='genre' value='Masculino'  onChange={handleChange} checked={data.genre === 'Masculino'} type='radio' /> Masculino
             </span>
             <span>
-              <input type='radio' /> Feminino
+              <input name='genre' value='Feminino' onChange={handleChange} checked={data.genre === 'Feminino'} type='radio' /> Feminino
             </span>
           </div>
         </div>
