@@ -55,6 +55,19 @@ const App = () => {
 
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(progressBar() !== 100 ){ 
+    return alert('Preencha todos os campos!');}
+    else{ 
+    alert('Formulário enviado com sucesso!')
+    setData({
+      name: '',
+      email: '',
+      maritalStatus: '',
+      genre: '',
+    })}
+  }
 
   const progressBar = () => {
     
@@ -85,7 +98,7 @@ const App = () => {
     return progress;
 
       }
-
+ 
 
   return (
     <div className='App'>
@@ -124,7 +137,7 @@ const App = () => {
             </span>
           </div>
         </div>
-        <button>Enviar Formulário</button>
+        <button onClick={handleSubmit} disabled={progressBar()!==100}>Enviar Formulário</button>
       </main>
     </div>
   );
