@@ -61,8 +61,8 @@ export default function LoginForm() {
     <div className='wrapper'>
       <div className='login-form'>
         <h1>Login Form 🐞</h1>
-        {/* Coloque a mensagem de erro de login na div abaixo. Mostre a div somente se houver uma mensagem de erro. */}
-        {  error?<div className='errorMessage'>{error}</div>: null}
+        {/*Coloque a mensagem de erro de login na div abaixo. Mostre a div somente se houver uma mensagem de erro.*/}
+        {  error ? <div className='errorMessage'>{error}</div> : null }
         <div className='row'>
           <label htmlFor={'email'}>Email</label>
           <input id={'email'}  name='email' type={'email'}  value={data.email} onChange={handleChange}   autoComplete='off' />
@@ -71,9 +71,10 @@ export default function LoginForm() {
           <label htmlFor={'password'}>Password</label>
           <input id={'password'}  name='password' type={'password'} value={data.password}  onChange={handleChange}/>
         </div>
-
+        
         <div className='button'>
-          <button onClick={handleSubmit} disabled={validate() || submitting }>Login</button>
+          <button onClick={handleSubmit} disabled={ validate() || submitting }>Login</button>
+
         </div>
       </div>
     </div>
