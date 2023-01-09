@@ -1,41 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #0f0f0f;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.board-game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f0f0f;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board-game__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.board-game__cell{
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgba(138, 137, 137, 0.576);
+    background-color: #787b7b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.board-game__cell--x{
+    color: #f00;
 }
 
-.card {
-  padding: 2em;
+.board-game__cell--o{
+    color: #00f;
 }
 
-.read-the-docs {
-  color: #888;
+.board-game__cell--disabled{
+    cursor: not-allowed;
 }
+
+.board-game__cell--disabled:hover{
+    background-color: #fff;
+}
+
+.board-game__cell:hover{
+    background-color: #eee;
+}
+
