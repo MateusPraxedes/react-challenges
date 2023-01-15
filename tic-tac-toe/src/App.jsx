@@ -16,30 +16,23 @@ import './App.css';
   //  todo - fazer um risco na sequência vencedora, caso houver
 
 
-function App() {
+const App = () => {
+
+
+
+
   return (
     <>
       <div className='board-game'>
-        <div className='board-game__row'>
-          <div className='board-game__cell'>❌</div>
-          <div className='board-game__cell '>⭕️</div>
-          <div className='board-game__cell'>❌</div>
-
-      </div>
-
-      <div className='board-game__row'>
-          <div className='board-game__cell'>❌</div>
-          <div className='board-game__cell '>⭕️</div>
-          <div className='board-game__cell'>❌</div>
-
-      </div>
-
-      <div className='board-game__row'>
-          <div className='board-game__cell'>❌</div>
-          <div className='board-game__cell '>⭕️</div>
-          <div className='board-game__cell'>❌</div>
-
-      </div>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
+        <span>0</span>
 
       </div>
 
